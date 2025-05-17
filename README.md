@@ -1,6 +1,6 @@
 # Gerenciador de tarefas
 
-## Descrição
+### Descrição
 Aplicação de console implementada com a linguagem Java de um pequeno sistema gerenciador de tarefas.
 
 ### Como funciona
