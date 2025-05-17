@@ -1,19 +1,17 @@
-import java.util.Date;
-
 public class Tarefa {
 
     int id;
     String nome;
     String descricao;
-    Date data;
+    String data;
     Boolean status;
 
-    public Tarefa(int id, String nome, String descricao, Date data) {
+    public Tarefa(int id, String nome, String descricao, String data, Boolean status) {
         this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.data = data;
-        this.status = false;
+        this.nome = nome.replaceAll(";",",");
+        this.descricao = descricao.replaceAll(";",",");
+        this.data = data.replaceAll(";",",");
+        this.status = status;
     }
 
     public int getId() {
@@ -29,7 +27,7 @@ public class Tarefa {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome = nome.replaceAll(";",",");
     }
 
     public String getDescricao() {
@@ -37,24 +35,31 @@ public class Tarefa {
     }
 
     public void setDescricao(String descricao) {
-        this.descricao = descricao;
+        this.descricao = descricao.replaceAll(";",",");
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setData(String data) {
+        this.data = data.replaceAll(";",",");
     }
 
     public Boolean getStatus() {
         return status;
     }
 
-    public void finalizarTarefa(){
-        this.status = true;
+    public String getStatusExibicao() {
+        if(status==true){
+            return "Finalizada";
+        }else{
+            return "Não finalizada";
+        }
     }
 
+    public void finalizar(){
+        this.status = true;
+    }
 
 }
